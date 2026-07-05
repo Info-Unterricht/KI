@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>KI-Forschungsreise – Entdecke Künstliche Intelligenz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/styles.css?v=3">
+</head>
+<body>
+
+<!-- Querformat-Hinweis -->
+<div id="rotate-overlay" class="rotate-overlay">
+  <div class="rotate-card">
+    <div class="rotate-icon">📱➡️📱</div>
+    <h2>Bitte drehe dein iPad ins Querformat!</h2>
+    <p>Diese KI-Forschungsreise ist für das Querformat gemacht.</p>
+  </div>
+</div>
+
+<!-- Kopfleiste -->
+<header id="app-header" class="app-header hidden">
+  <div class="header-left">
+    <span class="header-logo">🤖 KI-Forschungsreise</span>
+  </div>
+  <div class="header-progress">
+    <div class="progress-track" id="progress-track"></div>
+  </div>
+  <div class="header-right">
+    <div class="stat stat-timer" id="stat-timer" title="Verstrichene Zeit">⏱️ <span id="timer-display">00:00</span></div>
+    <div class="stat stat-points" id="stat-points" title="Punkte">⭐ <span id="points-display">0</span></div>
+    <button class="btn-map-toggle" id="btn-map-toggle">🗺️ Karte</button>
+  </div>
+</header>
+
+<main id="app-main">
+
+  <!-- ============ START-BILDSCHIRM ============ -->
+  <section id="view-start" class="view view-start active">
+    <div class="start-card">
+      <div class="mascot-big">🤖</div>
+      <h1>Willkommen zur KI-Forschungsreise!</h1>
+      <p class="lead">In den nächsten <strong>90 Minuten</strong> werdet ihr echte KI-Forscher:innen.
+      Ihr baut Entscheidungsbäume, trainiert ein Mini-Gehirn aus Kunstneuronen, bringt einer KI das Lernen bei
+      und deckt auf, wo KI an ihre Grenzen stößt.</p>
+
+      <div class="name-input-row">
+        <label for="player-name">Wie heißt du, Forscher:in?</label>
+        <input type="text" id="player-name" placeholder="Dein Name" maxlength="20" autocomplete="off">
+      </div>
+
+      <button class="btn-primary btn-huge" id="btn-start-journey">🚀 Forschungsreise starten</button>
+
+      <div class="agenda-preview">
+        <div class="agenda-item">🧠 Was ist KI?</div>
+        <div class="agenda-item">🌳 Arten von KI</div>
+        <div class="agenda-item">🕸️ Neuronale Netze</div>
+        <div class="agenda-item">🎓 Lernarten</div>
+        <div class="agenda-item">🚀 KI im Alltag</div>
+        <div class="agenda-item">⚠️ Probleme</div>
+        <div class="agenda-item">🔍 Recherche</div>
+        <div class="agenda-item">🏆 Abschluss</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KARTE / LEVEL-MAP ============ -->
+  <section id="view-map" class="view view-map">
+    <h2 class="map-title">Eure Forschungsreise</h2>
+    <div class="map-wrap">
+      <svg id="map-svg" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid meet"></svg>
+      <div id="map-stations" class="map-stations"></div>
+    </div>
+    <p class="map-hint" id="map-hint">Tippe auf eine leuchtende Station, um zu starten.</p>
+
+    <div class="badges-bar" id="badges-bar">
+      <div class="badges-bar-title">🏅 Deine Abzeichen</div>
+      <div class="badges-bar-list" id="badges-bar-list"></div>
+    </div>
+  </section>
+
+  <!-- ============ MODUL 1: WAS IST KI? ============ -->
+  <section id="modul-1" class="view module" data-badge="🧠" data-badge-name="KI-Entdecker">
+    <div class="module-inner" id="modul-1-content"></div>
+  </section>
+
+  <!-- ============ MODUL 2: ARTEN VON KI / ENTSCHEIDUNGSBAUM ============ -->
+  <section id="modul-2" class="view module" data-badge="🌳" data-badge-name="Regel-Baumeister">
+    <div class="module-inner" id="modul-2-content"></div>
+  </section>
+
+  <!-- ============ MODUL 3: NEURONALE NETZE ============ -->
+  <section id="modul-3" class="view module" data-badge="🕸️" data-badge-name="Netz-Trainer:in">
+    <div class="module-inner" id="modul-3-content"></div>
+  </section>
+
+  <!-- ============ MODUL 4: LERNARTEN ============ -->
+  <section id="modul-4" class="view module" data-badge="🎓" data-badge-name="Lernmeister:in">
+    <div class="module-inner" id="modul-4-content"></div>
+  </section>
+
+  <!-- ============ MODUL 5: NUTZUNGSMÖGLICHKEITEN ============ -->
+  <section id="modul-5" class="view module" data-badge="🚀" data-badge-name="Alltags-Profi">
+    <div class="module-inner" id="modul-5-content"></div>
+  </section>
+
+  <!-- ============ MODUL 6: PROBLEME VON KI ============ -->
+  <section id="modul-6" class="view module" data-badge="⚠️" data-badge-name="Kritische:r Denker:in">
+    <div class="module-inner" id="modul-6-content"></div>
+  </section>
+
+  <!-- ============ MODUL 7: RECHERCHE MIT KI ============ -->
+  <section id="modul-7" class="view module" data-badge="🔍" data-badge-name="Faktenchecker:in">
+    <div class="module-inner" id="modul-7-content"></div>
+  </section>
+
+  <!-- ============ MODUL 8: ABSCHLUSS / QUIZ / ZERTIFIKAT ============ -->
+  <section id="modul-8" class="view module" data-badge="🏆" data-badge-name="KI-Expert:in">
+    <div class="module-inner" id="modul-8-content"></div>
+  </section>
+
+</main>
+
+<!-- Toast für Punkte/Abzeichen -->
+<div id="toast-layer" class="toast-layer"></div>
+
+<script src="js/app.js?v=2"></script>
+<script src="js/module1-was-ist-ki.js"></script>
+<script src="js/module2-entscheidungsbaum.js"></script>
+<script src="js/module3-neuronale-netze.js"></script>
+<script src="js/module4-lernarten.js?v=3"></script>
+<script src="js/module5-nutzung.js"></script>
+<script src="js/module6-probleme.js"></script>
+<script src="js/module7-recherche.js"></script>
+<script src="js/module8-abschluss.js"></script>
+</body>
+</html>
